@@ -1,12 +1,12 @@
 // CODE here for your Lambda Classes
 class Person {
-    constructor(attributes){
-        this.name = name;
-        this.age = age;
-        this.location = location;
+    constructor(atrs){
+        this.name = atrs.name;
+        this.age = atrs.age;
+        this.location = atrs.location;
     }
 
-    speak (){
+    speak(){
         return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
@@ -15,16 +15,16 @@ class Instructors extends Person {
     constructor(instructorsAtrs){
         super(instructorsAtrs);
     
-        this.specialty = dearInstructors.specialty;
-        this.favLanguage = dearInstructors.favLanguage;
-        this.catchPhrase = dearInstructors.catchPhrase;
+        this.specialty = instructorsAtrs.specialty;
+        this.favLanguage = instructorsAtrs.favLanguage;
+        this.catchPhrase = instructorsAtrs.catchPhrase;
     }
 
     demo(){
-        return 'Today we are learning about ${subject}';
+        return `Today we are learning about ${subjects.subject4}`;
     }
     grade(){
-        return '${student.name} receives a perfect score on ${subject}';
+        return `${sarah.name} receives a perfect score on ${subjects.subject5}`;
     }
 }
 
@@ -32,19 +32,19 @@ class Students extends Person {
     constructor(studentssAtrs){
         super(studentssAtrs);
     
-        this.previousBackground = dearStudents.previousBackground;
-        this.className = dearStudents.className;
-        this.favSubjects = dearStudents.favSubjects;
+        this.previousBackground = studentssAtrs.previousBackground;
+        this.className = studentssAtrs.className;
+        this.favSubjects = studentssAtrs.favSubjects;
     }
 
     listsSubjects(){
-        return 'My favorites subjects are ${favSubjects}'
+        return `My favorites subjects are ${jerry.favSubjects[0]}, ${jerry.favSubjects[1]} & ${jerry.favSubjects[2]}.`;
     };
     PRAssignment(){
-        return '${student.name} has submitted a PR for ${subject}' 
+        return `${jerry.name} has submitted a PR for ${subjects.subject2}` ;
     };
     sprintChallenge(){
-        return '${student.name} has begun sprint challenge on {subject}' 
+        return `${sarah.name} has begun sprint challenge on ${subjects.subject4}`;
     };
 }
 
@@ -52,51 +52,109 @@ class ProjectManagers extends Instructors {
     constructor(managersAtrs){
         super(managersAtrs);
     
-        this.gradClassName = dearPms.gradClassName;
-        this.favInstructor = dearPms.gradClassName;
+        this.gradClassName = managersAtrs.gradClassName;
+        this.favInstructor = managersAtrs.gradClassName;
     }
 
     standUp(){
-        return '${name} announces to ${channel}, @channel standy times!​​​​​'
+        return `${pat.name} announces to {channel}, @channel standy times!​​​​​`;
     };
     debugsCode(){
-        return "{name} debugs {student.name}'s code on {subject}"
+        return `${darren.name} debugs ${sarah.name}'s code on ${subjects.subject4}`;
     }
 }
 
 
-const dearInstructors = new Instructors ({
-
-        specialty: "Math",
-        favLanguage: "Spanish",
-        catchPhrase: "Ponte las pilas!"
+const thatPerson = new Person ({
+        name: "PERSON",
+        age: "27",
+        location: "FL"
+      
 });
-const dearStudents = new Studen ({
-
+//<------------------------------------------------------INSTRUCTORS  
+const josh = new Instructors ({
+        name: "The Josh",
+        specialty: "Teaching",
+        favLanguage: "Spanish",
+        catchPhrase: "//any suggestions?",
+});
+const dan = new Instructors ({
+        name: "Dan",
+        specialty: "Cats?",
+        favLanguage: "English",
+        catchPhrase: "Dad Jokes"
+});
+const adetunji = new Instructors ({
+        name: "Adetunji",
+        specialty: "skribbles",
+        favLanguage: "English",
+        catchPhrase: "*laughs*"
+});
+//<------------------------------------------------------STUDENTS
+const jerry = new Students ({
+        name: "Jerry",
         previousBackground: "Play video games more often",
         className: "Web21",
         favSubjects: ["History", "Math", "Science"]
 });
-const dearPms = new ProjectManagers ({
-
-        gradClassName: "CS1",
-        favInstructor: "Josh"
+const sarah = new Students ({
+        name: "Sarah",
+        previousBackground: "unnecesary makeup",
+        className: "Web21",
+        favSubjects: ["History", "Math", "Science"]
+});
+const john = new Students ({
+        name: "John",
+        previousBackground: "Play video games more often... just like Jerry",
+        className: "Web21",
+        favSubjects: ["History", "Math", "Science"]
+});
+//<------------------------------------------------------PROJECT MANAGERS
+const pat = new ProjectManagers({
+    name: 'Pat',
+    age: '38',
+    gradClassName: 'WEB18',
+    favInstructor: 'Brett Madrid',
+    location: 'Petaluma, Ca',
+    specialty: 'Empathetic to the struggle of Redux',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Lets google that together.'
 });
 
-console.log(speak.())
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
+const darren = new ProjectManagers({
+    name: 'Darren',
+    age: '25',
+    gradClassName: 'WEB18',
+    favInstructor: 'Josh Knell',
+    location: 'North Carolina',
+    specialty: 'React',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Gang. Gang.',
+});
+const austin = new ProjectManagers({
+    name: 'Austin',
+    age: '23',
+    gradClassName: 'WEB18',
+    favInstructor: 'Josh Knell',
+    location: 'Somewhere',
+    specialty: 'Java',
+    favLanguage: 'Java',
+    catchPhrase: ":eggplant:",
+});
+//<------------------------------------------------------SUBJECTS
+const subjects = {
+    subject1: "Math",
+    subject2: "Science",
+    subject3: "Spanish",
+    subject4: "Javascript",
+    subject5: "Quantum Physics"
+};
+
+console.log(pat.speak());
+console.log(josh.demo());
+console.log(adetunji.grade());
+console.log(john.listsSubjects());
+console.log(sarah.PRAssignment());
+console.log(jerry.sprintChallenge());
+console.log(austin.standUp());
+console.log(darren.debugsCode());
